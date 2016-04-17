@@ -13,6 +13,6 @@ def search_tag(request):
 
 	image_link = []
 	for data in json['data']:
-		image_link.append(data['link'])
+		image_link.append(data['images']['low_resolution']['url'])
 
 	return render(request,'index.html',{'image_link':image_link})
