@@ -18,7 +18,7 @@ from django.contrib import admin
 from search import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^search/$',views.search_tag,name = 'search_tag'),
-    url(r'^$',views.home, name = 'home'),
+    url(r'^admin/', admin.site.urls),           
+    url(r'^search/$',views.search_tag,name = 'search_tag'),             #URL to search images
+    url(r'^$',views.home, name = 'home'),                               #URL for the home page
 ]
