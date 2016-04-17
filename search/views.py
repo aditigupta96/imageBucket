@@ -9,21 +9,21 @@ client_secret = "25995932a2534cf09f9be5a87be61001"
 
 base_url = "https://api.instagram.com/v1/"
 
-def home(request):
+def home(request):                                                          #function to display home page
 	response = TemplateResponse(request, 'index.html',{})
 	return response
 
-def search_tag(request):
+def search_tag(request):                                              #searches image 
         
         if request.method == "POST":
             
             tag = request.POST.get("tag")
-            tag_list = tag.split(",")
-            tagname = tag_list[0]
-            url = base_url + "tags/" + tagname + "/media/recent?access_token=260885964.45f1b46.21e98a2bae1a46dab31568d770197a0a"
+            tag_list = tag.split(",")       #tags stored in list
+            tagname = tag_list[0]           #search based on first tag
+            url = base_url + "tags/" + tagname + "/media/recent?access_token=260885964.45f1b46.21e98a2bae1a46dab31568d770197a0a"    
             resp = requests.get(url)
             
-            json = resp.json()
+            json = resp.json()          #json file with images after first tag
             image_link = []
             
             for data in json['data']:
@@ -31,9 +31,9 @@ def search_tag(request):
                 all_tag = data['tags']
                 input_tags = tag_list[1:]
                 
-                for item in input_tags:
+                for item in input_tags:         #checks if all tags are present
                     if (item not in all_tag):
-                        present = False
+                        present = False     #present changes to false if any one tag is not found
                         break
                     
                 if present:        
