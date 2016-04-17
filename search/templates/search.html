@@ -2,8 +2,12 @@
 <head>
 <title>Instagram</title></head>
 <body>
-{% for item in image_link %}
-<img src={{item}}>
-{% endfor %}
+{% if image_link%}
+	{% for item in image_link %}
+	<img src={{item}}>
+	{% endfor %}
+{%else%}
+	<p>Sorry no image found with given tag...!</p>
+{%endif%}
 </body>
 </html>
