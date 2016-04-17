@@ -9,4 +9,4 @@ You can enter multiple tags(seperated by comma) to view the images.
 2)Search using multiple tags is allowed.
 3)Picture can be downloaded on system.
 
-Link for the app : imagebuck.herokuapp.com
+Link for the app : http://imagebuck.herokuapp.com
