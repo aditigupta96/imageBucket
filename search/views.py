@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 from django.template.response import TemplateResponse
+from django.http import HttpResponse
 
 # Create your views here.
 access_token = "260885964.45f1b46.21e98a2bae1a46dab31568d770197a0a"
@@ -13,12 +14,18 @@ def home(request):
 	return response
 
 def search_tag(request):
-	resp = requests.get("https://api.instagram.com/v1/tags/lnmiit/media/recent?access_token=260885964.45f1b46.21e98a2bae1a46dab31568d770197a0a")
+        if request.method == "POST":
+            tag = request.POST.get("tag")
+            url = base_url + "tags/" + tag + "/media/recent?access_token=260885964.45f1b46.21e98a2bae1a46dab31568d770197a0a"
+            resp = requests.get(url)
 
-	json = resp.json()
+            json = resp.json()
 
-	image_link = []
-	for data in json['data']:
+            image_link = []
+            for data in json['data']:
 		image_link.append(data['images']['low_resolution']['url'])
 
-	return render(request,'search.html',{'image_link':image_link})
+            return render(request,'search.html',{'image_link':image_link})
+        
+        else:
+            return HttpResponse("Please try again")

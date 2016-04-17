@@ -84,7 +84,8 @@ input:focus {
     
   </head>
   <body>
-    <form action="/search/" method="post" name="tagForm" id="tagForm">
+    <form action="/search/" method="POST" name="tagForm" id="tagForm">
+    {% csrf_token %}
       <div class="header">
          <p>Insta Search</p>
       </div>
