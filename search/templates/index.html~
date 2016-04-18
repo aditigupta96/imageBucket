@@ -84,7 +84,7 @@ input:focus {
     
   </head>
   <body>
-    <form action="/search/" method="post" name="tagForm" id="tagForm">
+    <form action="#" method="post" name="sign up for beta form">
       <div class="header">
          <p>Insta Search</p>
       </div>
