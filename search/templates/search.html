@@ -9,26 +9,17 @@ body {
   color: #FDFCFB;
   text-align: center;
 }
-
-
-
 .header {
   font-size: 35px;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
-
-
 .description {
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.3em;
   margin: -2px 0 45px;
 }
-
-
-
-
   </style>
     <meta charset="utf-8">
     <title>Insta Images</title>
@@ -38,14 +29,15 @@ body {
   	<div class="header">
          <p>Insta Images</p>
       </div>
+{% if image_link %}
+	{% for item in image_link %}
+		<img src={{item}}> 
+		<br>
+		<br>
+	{% endfor %}
+{% else %}
+	<p><h1>No Image Found.Please try again..!!!</h1></p>
 
-{% for item in image_link %}
-
-<img src={{item}}> 
-<br>
-<br>
-{% endfor %}
-
-
+{% endif %}
 </body>
 </html>
