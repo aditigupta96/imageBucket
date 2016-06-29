@@ -1,4 +1,4 @@
-- ABOUT --------------------------------------------------------------------
+
 [![Build Status](https://travis-ci.org/aditigupta96/imageBucket.svg?branch=master)](https://travis-ci.org/aditigupta96/imageBucket)
 
 ImageBucket is an application used to view Instagram pictures. 
